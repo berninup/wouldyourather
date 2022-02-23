@@ -5,6 +5,8 @@
 <form class = 'center' action="{% url 'vote' question.id %}" method="post">
     {% csrf_token %}
     <!-- <hr /> -->
+    
+    <div class="card-panel indigo lighten-4">
     <p>
         <label>
           <input name="group1" type="radio" id='choice1' value='choice1'/>
@@ -18,7 +20,7 @@
           <span>{{question.option_two}}</span>
         </label>
     </p>
-    
+    </div>
 
 
     <input type="submit" class='btn' value="vote">
