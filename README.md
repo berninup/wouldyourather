@@ -16,6 +16,7 @@ A simple Django app letting users vote on would you rather questions.
 * Django
 * Python
 * Postgresql
+* Materialize
 * HTML
 * CSS
 
