@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>{{question.question}}</h1>
+
+<form action="{% url 'vote' question.id %}" method="post">
+    {% csrf_token %}
+    
+<input type="radio" name="vote" value='choice1' />
+{{question.option_one}}
+<input type="radio" name="vote" value='choice2' />
+{{question.option_two}}
+
+
+
+
+<input type="submit" value="vote">
+</form>
+
+
+
+{% endblock %}

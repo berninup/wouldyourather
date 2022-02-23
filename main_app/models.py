@@ -1,9 +1,12 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 
 class WouldYouRather(models.Model):
     question = models.CharField(max_length=250)
+    option_one = models.CharField(max_length=50)
+    option_two = models.CharField(max_length=50)
+    option_one_count = models.IntegerField(default=0)
+    option_two_count = models.IntegerField(default=0)
 
-class Choice(models.Model):
-    choice = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
-    question = models.ForeignKey(WouldYouRather, on_delete=models.CASCADE)
+
