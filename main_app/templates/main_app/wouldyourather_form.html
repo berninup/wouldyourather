@@ -13,11 +13,10 @@
 
 <form action="" method="post">
     {% csrf_token %}
-    <!-- We must always use this tag in our forms -->
     <table>
         {{ form.as_table }}
     </table>
-    <input type="submit" value="{% if object %} Edit {% else %} Add {% endif %}">
+    <input type="submit" class='btn' value="{% if object %} Edit {% else %} Add {% endif %}">
 </form>
 
 

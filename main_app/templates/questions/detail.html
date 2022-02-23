@@ -1,19 +1,27 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>{{question.question}}</h1>
+<h2>{{question.question}}</h2>
 
-<form action="{% url 'vote' question.id %}" method="post">
+<form class = 'center' action="{% url 'vote' question.id %}" method="post">
     {% csrf_token %}
+    <!-- <hr /> -->
+    <p>
+        <label>
+          <input name="group1" type="radio" id='choice1' value='choice1'/>
+          <span>{{question.option_one}}</span>
+        </label>
+    </p>
+
+    <p>
+        <label>
+          <input name="group1" type="radio" id='choice2' value='choice2'/>
+          <span>{{question.option_two}}</span>
+        </label>
+    </p>
     
-<input type="radio" name="vote" value='choice1' />
-{{question.option_one}}
-<input type="radio" name="vote" value='choice2' />
-{{question.option_two}}
 
 
-
-
-<input type="submit" value="vote">
+    <input type="submit" class='btn' value="vote">
 </form>
 
 

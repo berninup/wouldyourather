@@ -34,26 +34,27 @@ def question_index(request):
 
 def question_detail(request, question_id):
     question = WouldYouRather.objects.get(id=question_id)
-
+    total = question.option_one_count + question.option_two_count
+    print(total)
 
     return render(request, 'questions/detail.html', {
       'question': question,  
     })
 
-def question_vote(request, question_id):
+def results(request, question_id):
     question = WouldYouRather.objects.get(id=question_id)
-    return render(request, 'questions/vote.html', {
+    return render(request, 'questions/results.html', {
         'question': question,
     })
 
 
-
-
 def vote(request, question_id):
     question = WouldYouRather.objects.get(id = question_id)
-    selected_option= request.POST['vote']
+    selected_option= request.POST['group1']
+    
+    
+
     print(selected_option)
-    print(question.option_one)
     
     if selected_option == 'choice1':
         question.option_one_count += 1
@@ -62,7 +63,7 @@ def vote(request, question_id):
 
     question.save()
 
-    return redirect('index')
+    return redirect('results', question_id)
 
 
 class WouldYouRatherCreate(LoginRequiredMixin, CreateView):

@@ -1,13 +1,13 @@
 {% extends 'base.html' %} {% block content %}
 
-<h1>Would You Rather</h1>
+<h1>Would You Rather?</h1>
 
 {% for question in questions%}
 <div>
-    <div>
-        <a href="{% url 'detail' question.id%}">
-        {{ question.question}}
-    </a>
+    <div class="card center">
+        <span class="card-title"><a class ='black-text' href="{% url 'detail' question.id%}">
+            {{ question.question}}
+        </a></span>
     </div>
 </div>
 
