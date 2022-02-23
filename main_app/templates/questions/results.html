@@ -1,10 +1,20 @@
 {% extends 'base.html' %} {% block content %}
 
 <h2>{{question.question}}</h2>
-{{question.option_one}}
-{{question.option_one_count}}
-{{question.option_two}}
-{{question.option_two_count}}
+
+<div class="center">
+<h4>Total votes - {{total}}</h4>
+
+
+<p>{{question.option_one_count}} voted for {{question.option_one}} ({{option_one_percent}}%)</p>
+
+<p>While {{question.option_two_count}} vote for {{question.option_two}} ({{option_two_percent}}%)</p>
+
+</div>
+
+
+
+
 
 
 

@@ -1,3 +1,4 @@
+from optparse import Option
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
@@ -43,8 +44,15 @@ def question_detail(request, question_id):
 
 def results(request, question_id):
     question = WouldYouRather.objects.get(id=question_id)
+    total = question.option_one_count + question.option_two_count
+    option_one_percent = int((question.option_one_count / total) * 100)
+    option_two_percent = int((question.option_two_count / total) * 100)
+    print(option_one_percent)
     return render(request, 'questions/results.html', {
         'question': question,
+        'option_one_percent': option_one_percent,
+        'option_two_percent': option_two_percent,
+        'total': total
     })
 
 
@@ -69,5 +77,5 @@ def vote(request, question_id):
 class WouldYouRatherCreate(LoginRequiredMixin, CreateView):
     model = WouldYouRather
     fields = ("question", "option_one", "option_two")
-
+    
         
