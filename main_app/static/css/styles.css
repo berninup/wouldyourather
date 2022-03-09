@@ -17,3 +17,7 @@ span {
 h5 {
     color: gray;
 }
+
+.card {
+    width: 50%;
+}
